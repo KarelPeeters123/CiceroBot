@@ -5,10 +5,13 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
+import java.util.Map;
 
 public class Main{
 	public static void main(String[] args) throws LoginException {
-		String token = "NTE4Nzk3NTUyMzA1MzA3NjQ5.XAPt3w.aHxwt4XoLRGLwVmpJCVKeFDW97Q";
+		String token = "";
+		Map<String, String> env = System.getenv();
+		token = env.get("TOKEN");
 		JDABuilder builder = JDABuilder.createDefault(token);
 		builder.addEventListeners(new DiscordListener());
 		builder.build();

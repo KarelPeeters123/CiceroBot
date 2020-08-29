@@ -6,7 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf86b927-06ae-4ece-b2ea-1375b54961bc" name="Default Changelist" comment="" />
+    <list default="true" id="cf86b927-06ae-4ece-b2ea-1375b54961bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DiscordBot.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/DiscordBot.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lu/karelpeeters/Discordbot/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lu/karelpeeters/Discordbot/controller/Main.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="45" selection-start-column="8" selection-end-column="45" />
+            <state relative-caret-position="266">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,11 +110,13 @@
       <find>flag</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/handlers/PingHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/handlers/ErrorHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/handlers/InvalidCommandHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -130,6 +137,7 @@
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/handlers/AuthRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/handlers/Command.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/DiscordListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java" />
       </list>
     </option>
   </component>
@@ -165,6 +173,7 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -249,15 +258,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Discordbot" type="462c0819:PsiDirectoryNode" />
-              <item name="discord" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Discordbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Discordbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Discordbot" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -272,6 +272,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -342,18 +343,18 @@
       <workItem from="1598468437624" duration="3325000" />
       <workItem from="1598515589267" duration="5552000" />
       <workItem from="1598592315400" duration="1096000" />
-      <workItem from="1598593938666" duration="16645000" />
+      <workItem from="1598593938666" duration="17312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26985000" />
+    <option name="totallyTimeSpent" value="27652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -377,7 +378,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.3297568" />
+      <window_info active="true" anchor="right" id="Maven" order="3" visible="true" weight="0.3297568" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Json Parser" order="6" />
@@ -639,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/karelpeeters/Discordbot/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="45" selection-start-column="8" selection-end-column="45" />
+        <state relative-caret-position="266">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
