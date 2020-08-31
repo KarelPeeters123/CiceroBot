@@ -16,22 +16,54 @@ public enum Command {
 	MOTION(
 			"!motion",
 			"propose a motion",
-			new MotionHandler()
+			new MotionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN,
+			AuthRole.ROMAN_SUBJECT
 	),
 	GETMOTIONS(
 			"!getmotions",
 			"list all motions",
-			new GetMotionsHandler()
+			new GetMotionsHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN,
+			AuthRole.ROMAN_SUBJECT
 	),
 	PING(
 			"!ping",
 			"returns pong",
-			new PingHandler()
+			new PingHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN,
+			AuthRole.ROMAN_SUBJECT
 	),
 	COMMANDS(
 			"!commands",
 			"returns list of possible commands",
-			new CommandsHandler()
+			new CommandsHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN,
+			AuthRole.ROMAN_SUBJECT
 	);
 
 	private String prefix;

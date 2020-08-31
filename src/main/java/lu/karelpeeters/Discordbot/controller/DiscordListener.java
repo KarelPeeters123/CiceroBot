@@ -1,6 +1,9 @@
 package lu.karelpeeters.Discordbot.controller;
 
 import lu.karelpeeters.Discordbot.controller.handlers.*;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -23,10 +26,32 @@ public class DiscordListener extends ListenerAdapter {
 		if (handler == null) {
 			handler = new InvalidCommandHandler();
 		}
-		if (command.getAuthRoles().length == 0) {
+		System.out.println("auth: " + isAuthorised(command, event.getMember()));
+		if (isAuthorised(command, event.getMember())) {
 			handler.handle(event);
 		} else {
 			new UnauthorisedHandler().handle(event);
 		}
+	}
+	private boolean isAuthorised(Command command, Member member) {
+//		for
+		System.out.println(command.getAuthRoles().length);
+		for (AuthRole role : command.getAuthRoles()) {
+			System.out.println(role);
+			for (Role myrole : member.getRoles()) {
+				System.out.println(myrole);
+			}
+			if (hasRole(member, AuthRoleToRole(role, member.getGuild()))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	private boolean hasRole(Member member, Role role) {
+		return member.getRoles().contains(role);
+	}
+	private Role AuthRoleToRole(AuthRole authRole, Guild guild) {
+		System.out.println(authRole.getRole());
+		return guild.getRolesByName(authRole.getRole(), false).get(0);
 	}
 }
