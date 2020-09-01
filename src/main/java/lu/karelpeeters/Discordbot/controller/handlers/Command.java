@@ -4,7 +4,7 @@ import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.GetMotionsHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.MotionHandler;
-import lu.karelpeeters.Discordbot.controller.handlers.motions.PassMotionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.PassMotionHandler;
 
 public enum Command {
 	ERROR(
