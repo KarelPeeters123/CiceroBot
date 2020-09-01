@@ -4,7 +4,9 @@ import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.GetMotionsHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.MotionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.FailMotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.PassMotionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.VetoMotionHandler;
 
 public enum Command {
 	ERROR(
@@ -72,12 +74,28 @@ public enum Command {
 	PASSMOTION(
 			"!passmotion",
 			"consider the motion as passed",
-			new PassMotionHandler("pass"),
+			new PassMotionHandler(),
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER
-	);
+	),
+	FAILMOTION(
+			"!failmotion",
+			"consider the motion as failed",
+			new FailMotionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER
+	),
+	VETOMOTION(
+			"!vetomotion",
+			"veto the motion",
+			new VetoMotionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL
+	);;
 
 	private String prefix;
 	private String description;
