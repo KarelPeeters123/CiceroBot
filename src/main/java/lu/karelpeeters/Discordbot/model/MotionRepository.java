@@ -4,12 +4,10 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.ItemCollection;
-import com.amazonaws.services.dynamodbv2.document.ScanOutcome;
-import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec;
+import com.amazonaws.services.dynamodbv2.document.utils.NameMap;
+import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ResourceNotFoundException;
 import com.amazonaws.services.dynamodbv2.model.TableDescription;
@@ -66,7 +64,10 @@ public class MotionRepository {
 
 		Table table = dynamoDB.getTable(TABLE_NAME);
 
-		ScanSpec scanSpec = new ScanSpec();
+		ScanSpec scanSpec = new ScanSpec()
+				.withFilterExpression("#status = :status")
+				.withNameMap(new NameMap().with("#status", "status"))
+				.withValueMap(new ValueMap().with(":status", "not resolved"));
 		List<Motion> motions = new ArrayList<>();
 		try {
 			ItemCollection<ScanOutcome> items = table.scan(scanSpec);
@@ -92,6 +93,9 @@ public class MotionRepository {
 		}
 		System.out.println(motions.size());
 		return sortMotionsById(motions);
+	}
+	public static void resolveMotion() {
+
 	}
 	private static List<Motion> sortMotionsById(List<Motion> motions) {
 		Collections.sort(motions);

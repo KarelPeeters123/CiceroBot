@@ -1,6 +1,10 @@
 package lu.karelpeeters.Discordbot.controller.handlers;
 
-import java.util.List;
+import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.GetMotionsHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.MotionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.motions.PassMotionHandler;
 
 public enum Command {
 	ERROR(
@@ -64,6 +68,15 @@ public enum Command {
 			AuthRole.MILES,
 			AuthRole.ROMAN_CITIZEN,
 			AuthRole.ROMAN_SUBJECT
+	),
+	PASSMOTION(
+			"!passmotion",
+			"consider the motion as passed",
+			new PassMotionHandler("pass"),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER
 	);
 
 	private String prefix;

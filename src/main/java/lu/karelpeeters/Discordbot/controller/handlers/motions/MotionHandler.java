@@ -1,5 +1,6 @@
-package lu.karelpeeters.Discordbot.controller.handlers;
+package lu.karelpeeters.Discordbot.controller.handlers.motions;
 
+import lu.karelpeeters.Discordbot.controller.handlers.DiscordHandler;
 import lu.karelpeeters.Discordbot.model.Motion;
 import lu.karelpeeters.Discordbot.model.MotionRepository;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

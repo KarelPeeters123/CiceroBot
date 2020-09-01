@@ -1,6 +1,8 @@
 package lu.karelpeeters.Discordbot.controller;
 
 import lu.karelpeeters.Discordbot.controller.handlers.*;
+import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.errors.UnauthorisedHandler;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -37,10 +39,6 @@ public class DiscordListener extends ListenerAdapter {
 //		for
 		System.out.println(command.getAuthRoles().length);
 		for (AuthRole role : command.getAuthRoles()) {
-			System.out.println(role);
-			for (Role myrole : member.getRoles()) {
-				System.out.println(myrole);
-			}
 			if (hasRole(member, AuthRoleToRole(role, member.getGuild()))) {
 				return true;
 			}
@@ -51,7 +49,6 @@ public class DiscordListener extends ListenerAdapter {
 		return member.getRoles().contains(role);
 	}
 	private Role AuthRoleToRole(AuthRole authRole, Guild guild) {
-		System.out.println(authRole.getRole());
 		return guild.getRolesByName(authRole.getRole(), false).get(0);
 	}
 }
