@@ -12,6 +12,6 @@ public class ResolveMotionHandler implements DiscordHandler {
 	}
 	@Override
 	public void handle(@Nonnull MessageReceivedEvent event) {
-		event.getChannel().sendMessage(newStatus).queue();
+		event.getChannel().sendMessage(newStatus + " motion with id: " + event.getMessage().getContentDisplay().split(" ")[1]).queue();
 	}
 }
