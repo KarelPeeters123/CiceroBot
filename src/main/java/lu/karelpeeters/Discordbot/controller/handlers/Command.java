@@ -10,17 +10,17 @@ import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.VetoMotion
 
 public enum Command {
 	ERROR(
-			"!error",
+			")error",
 			"internal error function, should not be called by users",
 			new ErrorHandler()
 	),
 	INVALIDCOMMAND(
-			"!invalidcommand",
+			")invalidcommand",
 			"internal error function, should not be called by users",
 			new InvalidCommandHandler()
 	),
 	MOTION(
-			"!motion",
+			")motion",
 			"propose a motion",
 			new MotionHandler(),
 			AuthRole.IMPERATOR,
@@ -33,7 +33,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	GETMOTIONS(
-			"!getmotions",
+			")getmotions",
 			"list all motions",
 			new GetMotionsHandler(),
 			AuthRole.IMPERATOR,
@@ -46,7 +46,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	PING(
-			"!ping",
+			")ping",
 			"returns pong",
 			new PingHandler(),
 			AuthRole.IMPERATOR,
@@ -59,7 +59,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	COMMANDS(
-			"!commands",
+			")commands",
 			"returns list of possible commands",
 			new CommandsHandler(),
 			AuthRole.IMPERATOR,
@@ -72,7 +72,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	PASSMOTION(
-			"!passmotion",
+			")passmotion",
 			"consider the motion as passed",
 			new PassMotionHandler(),
 			AuthRole.IMPERATOR,
@@ -81,7 +81,7 @@ public enum Command {
 			AuthRole.CABBAGE_FARMER
 	),
 	FAILMOTION(
-			"!failmotion",
+			")failmotion",
 			"consider the motion as failed",
 			new FailMotionHandler(),
 			AuthRole.IMPERATOR,
@@ -90,12 +90,18 @@ public enum Command {
 			AuthRole.CABBAGE_FARMER
 	),
 	VETOMOTION(
-			"!vetomotion",
+			")vetomotion",
 			"veto the motion",
 			new VetoMotionHandler(),
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL
-	);;
+	),
+	APPLY(
+			")apply",
+			"apply for citizenship",
+			new ApplyHandler(),
+			AuthRole.ROMAN_SUBJECT
+	);
 
 	private String prefix;
 	private String description;

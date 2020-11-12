@@ -3,6 +3,8 @@ package lu.karelpeeters.Discordbot.controller;
 import lu.karelpeeters.Discordbot.controller.handlers.*;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.UnauthorisedHandler;
+import lu.karelpeeters.Discordbot.model.ActivityRepository;
+import lu.karelpeeters.Discordbot.model.UserActivity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -15,9 +17,17 @@ public class DiscordListener extends ListenerAdapter {
 	private DiscordHandler handler;
 	@Override
 	public void onMessageReceived(@Nonnull MessageReceivedEvent event) {
+		if (event.getMember().getRoles().contains(event.getGuild().getRolesByName("Roman Subject", true).get(0))) {
+			try {
+				ActivityRepository.incrementUserActivity(event.getMember().getId(), event);
+			} catch (NullPointerException e) {
+				UserActivity activity = new UserActivity(event.getMember().getId(), 1);
+				ActivityRepository.addItemToDynamoDB(activity);
+			}
+		}
 		if (event.getAuthor().isBot()) return;
 		String msg = event.getMessage().getContentDisplay();
-		if (!msg.startsWith("!")) return;
+		if (!msg.startsWith(")")) return;
 		Command command;
 		try {
 			command = Command.getCommandWithPrefix(msg.split(" ")[0]);
