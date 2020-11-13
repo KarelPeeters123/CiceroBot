@@ -1,6 +1,7 @@
 package lu.karelpeeters.Discordbot.discord;
 
 import lu.karelpeeters.Discordbot.controller.handlers.Command;
+import lu.karelpeeters.Discordbot.model.Candidate;
 import lu.karelpeeters.Discordbot.model.Motion;
 import net.dv8tion.jda.api.EmbedBuilder;
 
@@ -35,4 +36,18 @@ public class Embed {
 		}
 		return eb;
 	}
+	public static EmbedBuilder getBallotEmbedBuilder(List<Candidate> candidates, String position) {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle(position + " Ballot", null);
+		eb.setColor(Color.red);
+		eb.setDescription("List of candidates running for " + position);
+		for (Candidate candidate : candidates) {
+			eb.addField(
+					candidate.discordName,
+					candidate.currentNickname,
+					false);
+		}
+		return eb;
+	}
+
 }

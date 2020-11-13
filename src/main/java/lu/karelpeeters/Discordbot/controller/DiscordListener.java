@@ -27,7 +27,7 @@ public class DiscordListener extends ListenerAdapter {
 		}
 		if (event.getAuthor().isBot()) return;
 		String msg = event.getMessage().getContentDisplay();
-		if (!msg.startsWith(")")) return;
+		if (!msg.startsWith("-")) return;
 		Command command;
 		try {
 			command = Command.getCommandWithPrefix(msg.split(" ")[0]);

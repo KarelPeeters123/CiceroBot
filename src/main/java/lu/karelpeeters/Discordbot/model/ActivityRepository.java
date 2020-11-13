@@ -27,18 +27,7 @@ public class ActivityRepository {
 		item_values.put("ID", new AttributeValue(userActivity.id));
 		item_values.put("messages", new AttributeValue(String.valueOf(userActivity.messages)));
 
-		final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard().withRegion(REGION).build();
-
-		try {
-			ddb.putItem(TABLE_NAME, item_values);
-		} catch (ResourceNotFoundException e) {
-			System.err.format("Error: The table \"%s\" can't be found.\n", TABLE_NAME);
-			System.err.println("Be sure that it exists and that you've typed its name correctly!");
-			System.exit(1);
-		} catch (AmazonServiceException e) {
-			System.err.println(e.getMessage());
-			System.exit(1);
-		}
+		DynamoDBConnection.addToDB(REGION, TABLE_NAME, item_values);
 	}
 	public static long getNumberOfMotions() {
 		final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.standard().withRegion(REGION).build();

@@ -1,5 +1,6 @@
 package lu.karelpeeters.Discordbot.controller.handlers;
 
+import lu.karelpeeters.Discordbot.controller.handlers.election.BallotHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.GetMotionsHandler;
@@ -7,20 +8,23 @@ import lu.karelpeeters.Discordbot.controller.handlers.motions.MotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.FailMotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.PassMotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.VetoMotionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterCenturionHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterConsulHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterSenatorHandler;
 
 public enum Command {
 	ERROR(
-			")error",
+			"-error",
 			"internal error function, should not be called by users",
 			new ErrorHandler()
 	),
 	INVALIDCOMMAND(
-			")invalidcommand",
+			"-invalidcommand",
 			"internal error function, should not be called by users",
 			new InvalidCommandHandler()
 	),
 	MOTION(
-			")motion",
+			"-motion",
 			"propose a motion",
 			new MotionHandler(),
 			AuthRole.IMPERATOR,
@@ -33,7 +37,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	GETMOTIONS(
-			")getmotions",
+			"-getmotions",
 			"list all motions",
 			new GetMotionsHandler(),
 			AuthRole.IMPERATOR,
@@ -46,7 +50,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	PING(
-			")ping",
+			"-ping",
 			"returns pong",
 			new PingHandler(),
 			AuthRole.IMPERATOR,
@@ -59,7 +63,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	COMMANDS(
-			")commands",
+			"-commands",
 			"returns list of possible commands",
 			new CommandsHandler(),
 			AuthRole.IMPERATOR,
@@ -72,7 +76,7 @@ public enum Command {
 			AuthRole.ROMAN_SUBJECT
 	),
 	PASSMOTION(
-			")passmotion",
+			"-passmotion",
 			"consider the motion as passed",
 			new PassMotionHandler(),
 			AuthRole.IMPERATOR,
@@ -81,7 +85,7 @@ public enum Command {
 			AuthRole.CABBAGE_FARMER
 	),
 	FAILMOTION(
-			")failmotion",
+			"-failmotion",
 			"consider the motion as failed",
 			new FailMotionHandler(),
 			AuthRole.IMPERATOR,
@@ -90,16 +94,51 @@ public enum Command {
 			AuthRole.CABBAGE_FARMER
 	),
 	VETOMOTION(
-			")vetomotion",
+			"-vetomotion",
 			"veto the motion",
 			new VetoMotionHandler(),
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL
 	),
-	APPLY(
-			")apply",
-			"apply for citizenship",
-			new ApplyHandler(),
+	REGISTERCONSUL(
+			"-consul",
+			"election for an upcoming consular election",
+			new RegisterConsulHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR
+	),
+	REGISTERSENATOR(
+			"-senator",
+			"election for an upcoming senatorial election",
+			new RegisterSenatorHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CENTURION
+	),
+	REGISTERCENTURION(
+			"-centurion",
+			"election for an upcoming centurion election",
+			new RegisterCenturionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CENTURION,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN
+	),
+	BALLOT(
+			"-ballot",
+			"show the ballot with all the candidates running for office",
+			new BallotHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN,
 			AuthRole.ROMAN_SUBJECT
 	);
 

@@ -4,6 +4,7 @@ public enum AuthRole {
 	IMPERATOR ("Imperator"),
 	CONSUL("Consul"),
 	SENATOR("Senator"),
+	CENTURION("Centurion"),
 	CABBAGE_FARMER("Cabbage Farmer"),
 	PONTIFEX_MAXIMUS("Pontifex Maximus"),
 	MILES("Miles"),
