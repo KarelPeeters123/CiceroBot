@@ -106,7 +106,8 @@ public enum Command {
 			new RegisterConsulHandler(),
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL,
-			AuthRole.SENATOR
+			AuthRole.SENATOR,
+			AuthRole.CENTURION
 	),
 	REGISTERSENATOR(
 			"-senator",
@@ -115,7 +116,9 @@ public enum Command {
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
-			AuthRole.CENTURION
+			AuthRole.CENTURION,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN
 	),
 	REGISTERCENTURION(
 			"-centurion",
