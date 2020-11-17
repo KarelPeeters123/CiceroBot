@@ -8,16 +8,20 @@ import lu.karelpeeters.Discordbot.model.UserActivity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.emote.EmoteAddedEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
 public class DiscordListener extends ListenerAdapter {
 	private DiscordHandler handler;
+	public static String ELECTION = "";
 	@Override
 	public void onMessageReceived(@Nonnull MessageReceivedEvent event) {
-		if (event.getMember().getRoles().contains(event.getGuild().getRolesByName("Roman Subject", true).get(0))) {
+		if (event.getMember() != null && event.getMember().getRoles().contains(event.getGuild().getRolesByName("Roman Subject", true).get(0))) {
 			try {
 				ActivityRepository.incrementUserActivity(event.getMember().getId(), event);
 			} catch (NullPointerException e) {
@@ -45,6 +49,21 @@ public class DiscordListener extends ListenerAdapter {
 			new UnauthorisedHandler().handle(event);
 		}
 	}
+
+	@Override
+	public void onGuildMessageReactionAdd(@NotNull GuildMessageReactionAddEvent event) {
+		System.out.println();
+		if(!DiscordListener.ELECTION.isEmpty()
+				&& event.getChannel().equals(event.getGuild().getTextChannelsByName("elections", true).get(0))
+				&& event.getReaction().getReactionEmote().getEmote().getName().equals("vote")
+				&& !event.getUser().isBot()) {
+			event.getUser().openPrivateChannel().queue((channel) ->
+			{
+				channel.sendMessage("http://rrf-vote.s3-website.eu-west-2.amazonaws.com/" + DiscordListener.ELECTION + ".html?id=" + event.getMember().getId()).queue();
+			});
+		}
+	}
+
 	private boolean isAuthorised(Command command, Member member) {
 //		for
 		System.out.println(command.getAuthRoles().length);

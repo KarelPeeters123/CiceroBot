@@ -1,6 +1,6 @@
 package lu.karelpeeters.Discordbot.controller.handlers;
 
-import lu.karelpeeters.Discordbot.controller.handlers.election.BallotHandler;
+import lu.karelpeeters.Discordbot.controller.handlers.election.*;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.InvalidCommandHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.GetMotionsHandler;
@@ -8,9 +8,6 @@ import lu.karelpeeters.Discordbot.controller.handlers.motions.MotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.FailMotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.PassMotionHandler;
 import lu.karelpeeters.Discordbot.controller.handlers.motions.resolve.VetoMotionHandler;
-import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterCenturionHandler;
-import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterConsulHandler;
-import lu.karelpeeters.Discordbot.controller.handlers.election.RegisterSenatorHandler;
 
 public enum Command {
 	ERROR(
@@ -143,6 +140,27 @@ public enum Command {
 			AuthRole.MILES,
 			AuthRole.ROMAN_CITIZEN,
 			AuthRole.ROMAN_SUBJECT
+	),
+	OPENELECTION(
+			"-open",
+			"opens the poll booth for the election to start",
+			new OpenElectionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL
+	),
+	CLOSEELECTION(
+			"-close",
+			"close the poll booth for the election to start",
+			new CloseElectionHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL
+	),
+	SHUTDOWN(
+			"-shutdown",
+			"shuts down the bot",
+			new ShutdownHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL
 	);
 
 	private String prefix;
