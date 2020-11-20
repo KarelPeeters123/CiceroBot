@@ -12,7 +12,6 @@ import java.util.TimerTask;
 
 public class MotionHandler implements DiscordHandler {
 	public void handle(@Nonnull MessageReceivedEvent event) {
-		event.getChannel().sendMessage("Motion logged: " + event.getMessage().getContentDisplay().split(" ")[1]).queue();
 		Motion motion = new Motion(event);
 //		MotionRepository.addItemToDynamoDB(motion);
 		event.getGuild().getTextChannelsByName("motions", true).get(0).sendMessage(motion.getContent()).queue(
