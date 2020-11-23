@@ -52,13 +52,13 @@ public class DiscordListener extends ListenerAdapter {
 
 	@Override
 	public void onGuildMessageReactionAdd(@NotNull GuildMessageReactionAddEvent event) {
-		if (event.getChannel().equals(event.getGuild().getTextChannelsByName("motions", true).get(0))
-				&& (
-						event.getMember().getRoles().contains(event.getJDA().getRolesByName("Consul", true).get(0))
-								|| event.getMember().getRoles().contains(event.getJDA().getRolesByName("Imperator", true).get(0))
-				)) {
-			event.getMessageId()
-		}
+//		if (event.getChannel().equals(event.getGuild().getTextChannelsByName("motions", true).get(0))
+//				&& (
+//						event.getMember().getRoles().contains(event.getJDA().getRolesByName("Consul", true).get(0))
+//								|| event.getMember().getRoles().contains(event.getJDA().getRolesByName("Imperator", true).get(0))
+//				)) {
+//			event.getMessageId()
+//		}
 		if(!DiscordListener.ELECTION.isEmpty()
 				&& event.getChannel().equals(event.getGuild().getTextChannelsByName("elections", true).get(0))
 				&& event.getReaction().getReactionEmote().getEmote().getName().equals("vote")
