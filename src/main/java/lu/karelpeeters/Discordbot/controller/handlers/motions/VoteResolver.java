@@ -45,6 +45,12 @@ public class VoteResolver extends TimerTask {
 				}
 		);
 	}
+
+	@Override
+	public boolean cancel() {
+		return super.cancel();
+	}
+
 	public boolean hasPassed(long ayeCount, long nayCount) {
 		return ayeCount >= 4 && ayeCount > nayCount;
 	}

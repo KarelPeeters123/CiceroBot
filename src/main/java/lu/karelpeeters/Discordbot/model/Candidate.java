@@ -21,21 +21,21 @@ public class Candidate {
 	}
 
 	public void setDiscordName(String discordName) {
-		if (discordName.isEmpty()) {
+		if (discordName == null || discordName.isEmpty()) {
 			this.discordName = "N/A";
 		}
 		this.discordName = discordName;
 	}
 
 	public void setCurrentNickname(String currentNickname) {
-		if (currentNickname.isEmpty()) {
+		if (currentNickname == null || currentNickname.isEmpty()) {
 			this.currentNickname = "N/A";
 		}
 		this.currentNickname = currentNickname;
 	}
 
 	public void setProfileURL(String profileURL) {
-		if (profileURL.isEmpty()) {
+		if (profileURL == null || profileURL.isEmpty()) {
 			this.profileURL = "N/A";
 		}
 		this.profileURL = profileURL;

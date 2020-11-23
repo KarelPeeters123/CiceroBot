@@ -30,6 +30,7 @@ public class MotionHandler implements DiscordHandler {
 //					System.out.println(aye);
 					message.addReaction(event.getJDA().getEmotesByName("aye", true).get(0)).queue();
 					message.addReaction(event.getJDA().getEmotesByName("nay", true).get(0)).queue();
+					message.addReaction(event.getJDA().getEmotesByName("veto", true).get(0)).queue();
 					VoteResolver resolver = new VoteResolver(message.getId(), event);
 					Timer timer = new Timer("motionTimer");
 					long seconds = 60;
