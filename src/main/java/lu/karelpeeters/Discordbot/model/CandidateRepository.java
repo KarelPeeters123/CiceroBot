@@ -20,6 +20,7 @@ public class CandidateRepository {
 	public static String REGION = "eu-west-2";
 	public static String CONSUL_TABLE = "Consul_Ballot";
 	public static void addItemToDynamoDB(Candidate candidate, String tableName) {
+		System.out.println(candidate.toString());
 		HashMap<String, AttributeValue> item_values =
 				new HashMap<String, AttributeValue>();
 		item_values.put("id", new AttributeValue(candidate.id));

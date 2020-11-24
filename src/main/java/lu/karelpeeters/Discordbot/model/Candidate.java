@@ -11,6 +11,17 @@ public class Candidate {
 		this.setDiscordName(discordName);
 		this.setCurrentNickname(currentNickname);
 		this.setProfileURL(profileURL);
+		System.out.println(this.currentNickname + " : " + currentNickname);
+	}
+
+	@Override
+	public String toString() {
+		return "Candidate{" +
+				"id='" + id + '\'' +
+				", discordName='" + discordName + '\'' +
+				", currentNickname='" + currentNickname + '\'' +
+				", profileURL='" + profileURL + '\'' +
+				'}';
 	}
 
 	public void setId(String id) {
@@ -21,22 +32,28 @@ public class Candidate {
 	}
 
 	public void setDiscordName(String discordName) {
-		if (discordName == null || discordName.isEmpty()) {
-			this.discordName = "N/A";
+		if (currentNickname == null) {
+			this.currentNickname = "N/A";
+		} else if (currentNickname.isEmpty()) {
+			this.currentNickname = "N/A";
 		}
 		this.discordName = discordName;
 	}
 
 	public void setCurrentNickname(String currentNickname) {
-		if (currentNickname == null || currentNickname.isEmpty()) {
+		if (currentNickname == null) {
+			this.currentNickname = "N/A";
+		} else if (currentNickname.isEmpty()) {
 			this.currentNickname = "N/A";
 		}
 		this.currentNickname = currentNickname;
 	}
 
 	public void setProfileURL(String profileURL) {
-		if (profileURL == null || profileURL.isEmpty()) {
-			this.profileURL = "N/A";
+		if (currentNickname == null) {
+			this.currentNickname = "N/A";
+		} else if (currentNickname.isEmpty()) {
+			this.currentNickname = "N/A";
 		}
 		this.profileURL = profileURL;
 	}
