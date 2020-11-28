@@ -1,6 +1,7 @@
 package lu.karelpeeters.Discordbot.controller.handlers.election;
 
 import lu.karelpeeters.Discordbot.controller.handlers.DiscordHandler;
+import lu.karelpeeters.Discordbot.discord.Embed;
 import lu.karelpeeters.Discordbot.model.Candidate;
 import lu.karelpeeters.Discordbot.model.CandidateRepository;
 import lu.karelpeeters.Discordbot.model.DynamoDBConnection;
@@ -25,5 +26,16 @@ public class RegisterConsulHandler implements DiscordHandler {
 			CandidateRepository.addItemToDynamoDB(candidate, TABLE_NAME);
 			event.getChannel().sendMessage(event.getAuthor().getAsMention() + " Thank you for registering for the Consular election!").queue();
 		}
+		event.getGuild().getTextChannelsByName("elections", true).get(0)
+				.retrieveMessageById("782138322432557077").queue(
+						message -> {
+							message.editMessage(
+									Embed.getBallotEmbedBuilder(
+											CandidateRepository.getCandidates("Consul_Ballot"),
+											"Consul"
+									).build()
+							).queue();
+						}
+		);
 	}
 }

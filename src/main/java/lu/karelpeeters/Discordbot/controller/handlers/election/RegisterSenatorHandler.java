@@ -1,6 +1,7 @@
 package lu.karelpeeters.Discordbot.controller.handlers.election;
 
 import lu.karelpeeters.Discordbot.controller.handlers.DiscordHandler;
+import lu.karelpeeters.Discordbot.discord.Embed;
 import lu.karelpeeters.Discordbot.model.Candidate;
 import lu.karelpeeters.Discordbot.model.CandidateRepository;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -24,5 +25,16 @@ public class RegisterSenatorHandler implements DiscordHandler {
 			CandidateRepository.addItemToDynamoDB(candidate, TABLE_NAME);
 			event.getChannel().sendMessage(event.getAuthor().getAsMention() + " Thank you for registering for the Senator election!").queue();
 		}
+		event.getGuild().getTextChannelsByName("elections", true).get(0)
+				.retrieveMessageById("782138323513901096").queue(
+				message -> {
+					message.editMessage(
+							Embed.getBallotEmbedBuilder(
+									CandidateRepository.getCandidates("Senator_Ballot"),
+									"Senator"
+							).build()
+					).queue();
+				}
+		);
 	}
 }
