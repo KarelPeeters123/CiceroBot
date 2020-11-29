@@ -161,6 +161,18 @@ public enum Command {
 			new ShutdownHandler(),
 			AuthRole.IMPERATOR,
 			AuthRole.CONSUL
+	),
+	RANDOMSTORY(
+			"-random",
+			"gets a random story",
+			new RandomStoryHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN
 	);
 
 	private String prefix;
