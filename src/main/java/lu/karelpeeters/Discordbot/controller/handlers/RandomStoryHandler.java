@@ -57,7 +57,7 @@ public class RandomStoryHandler implements DiscordHandler {
 			Map map = mapper.readValue(responseBody, Map.class);
 			String story = ((String)map.get("output"));
 			List<String> messages = new ArrayList<>();
-			for (int i = 0; i < story.length() / 2000; i++) {
+			for (int i = 0; i < (story.length() / 2000) + 1; i++) {
 				int startIndex = i * 2000;
 				int endIndex = startIndex + 2000;
 				if (story.length() - startIndex < 2000) {
