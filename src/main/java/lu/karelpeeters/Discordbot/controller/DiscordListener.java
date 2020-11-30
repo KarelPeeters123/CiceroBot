@@ -65,7 +65,7 @@ public class DiscordListener extends ListenerAdapter {
 				&& !event.getUser().isBot()) {
 			event.getUser().openPrivateChannel().queue((channel) ->
 			{
-				channel.sendMessage("http://rrf-vote.s3-website.eu-west-2.amazonaws.com/" + DiscordListener.ELECTION + ".html?id=" + event.getMember().getId()).queue();
+				channel.sendMessage("http://vote.rrf.borlyt-salnus.lu/" + DiscordListener.ELECTION + ".html?id=" + event.getMember().getId()).queue();
 			});
 		}
 	}
