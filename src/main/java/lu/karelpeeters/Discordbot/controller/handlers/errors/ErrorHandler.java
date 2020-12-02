@@ -9,4 +9,8 @@ public class ErrorHandler implements DiscordHandler {
 	public void handle(@Nonnull MessageReceivedEvent event) {
 		event.getChannel().sendMessage("An unknown error occured, contact @2Girls1Lane to resolve the issue").queue();
 	}
+	public void handleWithMessage(@Nonnull MessageReceivedEvent event, String stacktrace) {
+		event.getChannel().sendMessage("An unknown error occured, contact @2Girls1Lane to resolve the issue").queue();
+		event.getChannel().sendMessage("Nature of error: **" + stacktrace + "**").queue();
+	}
 }

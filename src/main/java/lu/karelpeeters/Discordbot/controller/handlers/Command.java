@@ -173,6 +173,18 @@ public enum Command {
 			AuthRole.PONTIFEX_MAXIMUS,
 			AuthRole.MILES,
 			AuthRole.ROMAN_CITIZEN
+	),
+	PASTA(
+			"-pasta",
+			"get a pasta from creepypasta.com",
+			new PastaHandler(),
+			AuthRole.IMPERATOR,
+			AuthRole.CONSUL,
+			AuthRole.SENATOR,
+			AuthRole.CABBAGE_FARMER,
+			AuthRole.PONTIFEX_MAXIMUS,
+			AuthRole.MILES,
+			AuthRole.ROMAN_CITIZEN
 	);
 
 	private String prefix;
