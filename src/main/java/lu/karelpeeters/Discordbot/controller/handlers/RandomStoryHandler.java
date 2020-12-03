@@ -1,6 +1,7 @@
 package lu.karelpeeters.Discordbot.controller.handlers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lu.karelpeeters.Discordbot.discord.Utils;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -57,17 +58,18 @@ public class RandomStoryHandler implements DiscordHandler {
 			Map map = mapper.readValue(responseBody, Map.class);
 			String story = ((String)map.get("output"));
 			List<String> messages = new ArrayList<>();
-			for (int i = 0; i < (story.length() / 2000) + 1; i++) {
-				int startIndex = i * 2000;
-				int endIndex = startIndex + 2000;
-				if (story.length() - startIndex < 2000) {
-					endIndex = story.length();
-				}
-				messages.add(story.substring(startIndex, endIndex));
-			}
-			for (String msg : messages) {
-				event.getChannel().sendMessage(msg).queue();
-			}
+//			for (int i = 0; i < (story.length() / 2000) + 1; i++) {
+//				int startIndex = i * 2000;
+//				int endIndex = startIndex + 2000;
+//				if (story.length() - startIndex < 2000) {
+//					endIndex = story.length();
+//				}
+//				messages.add(story.substring(startIndex, endIndex));
+//			}
+//			for (String msg : messages) {
+//				event.getChannel().sendMessage(msg).queue();
+//			}
+			Utils.sendMessageAsBuffer(event.getChannel(), story);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

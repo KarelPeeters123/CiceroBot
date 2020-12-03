@@ -2,6 +2,8 @@ package lu.karelpeeters.Discordbot.controller.handlers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lu.karelpeeters.Discordbot.controller.handlers.errors.ErrorHandler;
+import lu.karelpeeters.Discordbot.discord.Utils;
+import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
@@ -59,10 +61,15 @@ public class PastaHandler implements DiscordHandler{
 			Element story = doc.selectFirst("div.entry-content");
 			for (Element p : story.getElementsByTag("p")) {
 				try {
+					if (p.text().length() > 1999) {
+						Utils.sendMessageAsBuffer(event.getChannel(), p.text());
+					}
 					event.getChannel().sendMessage(p.text()).queue();
 
 				} catch (Exception e) {
-					new ErrorHandler().handleWithMessage(event, e.getMessage());
+					if (!e.getMessage().equals("Provided text for message may not be empty")) {
+						new ErrorHandler().handleWithMessage(event, e.getMessage());
+					}
 				}
 			}
 //			ObjectMapper mapper = new ObjectMapper();
