@@ -25,17 +25,17 @@ public class RegisterCenturionHandler implements DiscordHandler {
 			CandidateRepository.addItemToDynamoDB(candidate, TABLE_NAME);
 			event.getChannel().sendMessage(event.getAuthor().getAsMention() + " Thank you for registering for the Centurion election!").queue();
 		}
-		event.getGuild().getTextChannelsByName("elections", true).get(0)
-				.retrieveMessageById("782138324654620682").queue(
-				message -> {
-					message.editMessage(
-							Embed.getBallotEmbedBuilder(
-									CandidateRepository.getCandidates("Centurion_Ballot"),
-									"Centurion"
-							).build()
-					).queue();
-				}
-		);
+//		event.getGuild().getTextChannelsByName("elections", true).get(0)
+//				.retrieveMessageById("782138324654620682").queue(
+//				message -> {
+//					message.editMessage(
+//							Embed.getBallotEmbedBuilder(
+//									CandidateRepository.getCandidates("Centurion_Ballot"),
+//									"Centurion"
+//							).build()
+//					).queue();
+//				}
+//		);
 	}
 
 }
