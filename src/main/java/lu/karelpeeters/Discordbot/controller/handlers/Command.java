@@ -25,6 +25,7 @@ public enum Command {
 			"propose a motion",
 			new MotionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -38,6 +39,7 @@ public enum Command {
 			"list all motions",
 			new GetMotionsHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -51,6 +53,7 @@ public enum Command {
 			"returns pong",
 			new PingHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -64,6 +67,7 @@ public enum Command {
 			"returns list of possible commands",
 			new CommandsHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -77,6 +81,7 @@ public enum Command {
 			"consider the motion as passed",
 			new PassMotionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER
@@ -86,6 +91,7 @@ public enum Command {
 			"consider the motion as failed",
 			new FailMotionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER
@@ -95,6 +101,7 @@ public enum Command {
 			"veto the motion",
 			new VetoMotionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL
 	),
 	REGISTERCONSUL(
@@ -102,6 +109,7 @@ public enum Command {
 			"election for an upcoming consular election",
 			new RegisterConsulHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CENTURION
@@ -111,6 +119,7 @@ public enum Command {
 			"election for an upcoming senatorial election",
 			new RegisterSenatorHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CENTURION,
@@ -122,6 +131,7 @@ public enum Command {
 			"election for an upcoming centurion election",
 			new RegisterCenturionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CENTURION,
@@ -133,6 +143,7 @@ public enum Command {
 			"show the ballot with all the candidates running for office",
 			new BallotHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -146,6 +157,7 @@ public enum Command {
 			"opens the poll booth for the election to start",
 			new OpenElectionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL
 	),
 	CLOSEELECTION(
@@ -153,6 +165,7 @@ public enum Command {
 			"close the poll booth for the election to start",
 			new CloseElectionHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL
 	),
 	SHUTDOWN(
@@ -160,6 +173,7 @@ public enum Command {
 			"shuts down the bot",
 			new ShutdownHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL
 	),
 	RANDOMSTORY(
@@ -167,6 +181,7 @@ public enum Command {
 			"gets a random story",
 			new RandomStoryHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,
@@ -179,6 +194,7 @@ public enum Command {
 			"get a pasta from creepypasta.com",
 			new PastaHandler(),
 			AuthRole.IMPERATOR,
+			AuthRole.VICE,
 			AuthRole.CONSUL,
 			AuthRole.SENATOR,
 			AuthRole.CABBAGE_FARMER,

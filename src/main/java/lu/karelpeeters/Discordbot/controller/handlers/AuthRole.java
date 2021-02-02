@@ -1,7 +1,8 @@
 package lu.karelpeeters.Discordbot.controller.handlers;
 
 public enum AuthRole {
-	IMPERATOR ("Imperator"),
+	IMPERATOR ("Imperator of Rome"),
+	VICE("Vice Imperator"),
 	CONSUL("Consul"),
 	SENATOR("Senator"),
 	CENTURION("Centurion"),

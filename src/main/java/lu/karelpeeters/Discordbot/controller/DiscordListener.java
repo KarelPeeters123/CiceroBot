@@ -38,6 +38,7 @@ public class DiscordListener extends ListenerAdapter {
 		} catch (NoSuchCommandException e) {
 			command = Command.INVALIDCOMMAND;
 		}
+		System.out.println(command);
 		handler = command.getHandler();
 		if (handler == null) {
 			handler = new InvalidCommandHandler();
@@ -74,6 +75,7 @@ public class DiscordListener extends ListenerAdapter {
 //		for
 		System.out.println(command.getAuthRoles().length);
 		for (AuthRole role : command.getAuthRoles()) {
+			System.out.println(role);
 			if (hasRole(member, AuthRoleToRole(role, member.getGuild()))) {
 				return true;
 			}
@@ -81,6 +83,7 @@ public class DiscordListener extends ListenerAdapter {
 		return false;
 	}
 	private boolean hasRole(Member member, Role role) {
+		System.out.println(member.getRoles().get(0));
 		return member.getRoles().contains(role);
 	}
 	private Role AuthRoleToRole(AuthRole authRole, Guild guild) {
