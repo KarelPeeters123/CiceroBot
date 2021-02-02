@@ -22,7 +22,7 @@ public class ApplyHandler implements DiscordHandler {
 				event.getJDA().getRolesByName("Roman Citizen", true).get(0)
 		).queue();
 		event.getGuild().removeRoleFromMember(event.getMember(), event.getJDA().getRolesByName("Roman Subject", true).get(0)).queue();
-		event.getGuild().removeRoleFromMember(event.getMember(), event.getJDA().getRolesByName("Auxillary Forces", true).get(0)).queue();
+//		event.getGuild().removeRoleFromMember(event.getMember(), event.getJDA().getRolesByName("Auxillary Forces", true).get(0)).queue();
 		event.getMessage().getChannel().sendMessage("Salve " + event.getAuthor().getAsMention() + ",\nthe senate of Rome recognized your dutiful service to the empire and by decree of the emperor himself, you are hereby granted roman citizenship with all right and privileges attached, you can now join our prestigious legions, instead of serving with the auxillary.\n ROMA INVICTA https://media.discordapp.net/attachments/559357924355473438/781440162335817728/untitled.png").queue();
 	}
 	public boolean hasSufficientMessages(long amount) {
